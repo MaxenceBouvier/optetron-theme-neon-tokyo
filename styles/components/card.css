@@ -1,0 +1,22 @@
+/* ============================================================
+   Neon Tokyo — Card preset
+   ============================================================ */
+
+@layer components {
+  .ntk-card {
+    background: var(--surface);
+    border: 1px solid var(--outline-variant);
+    border-radius: var(--radius-lg);
+    padding: 1rem;
+  }
+  .ntk-card-raised {
+    background: var(--surface-container);
+  }
+  .ntk-card-active {
+    background: var(--surface-container-high);
+    border-color: color-mix(in srgb, var(--primary) 30%, transparent);
+    box-shadow:
+      inset 0 0 12px rgba(255, 45, 120, 0.08),
+      0 0 8px rgba(255, 45, 120, 0.15);
+  }
+}

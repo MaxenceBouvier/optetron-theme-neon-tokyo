@@ -1,0 +1,47 @@
+/* ============================================================
+   Neon Tokyo — Color palette
+   ------------------------------------------------------------
+   The three brand hues (primary/secondary/tertiary) plus the
+   dark ink-blue surface ladder.
+
+   These are raw colors — see semantics.css for role aliases
+   (foreground, border, ring, destructive, etc.).
+   ============================================================ */
+
+@theme {
+  /* Brand --------------------------------------------------------- */
+  --color-primary:   #ff2d78;  /* hot magenta — actions, brand, focus  */
+  --color-secondary: #00ffcc;  /* cyan — online, success, positive     */
+  --color-tertiary:  #ffe04a;  /* acid yellow — warning, waiting       */
+
+  /* Surface ladder (dark → less dark) ----------------------------- */
+  --color-background:             #0a0a12;  /* page base              */
+  --color-surface:                #0f0f1a;  /* card / panel           */
+  --color-surface-container:      #141422;  /* raised, inputs         */
+  --color-surface-container-high: #1e1e30;  /* popovers, active rows  */
+  --color-outline-variant:        #302840;  /* dividers, quiet borders*/
+}
+
+:root {
+  /* Brand */
+  --primary:   #ff2d78;
+  --secondary: #00ffcc;
+  --tertiary:  #ffe04a;
+
+  /* Surfaces */
+  --background:             #0a0a12;
+  --surface:                #0f0f1a;
+  --surface-container:      #141422;
+  --surface-container-high: #1e1e30;
+  --outline-variant:        #302840;
+
+  /* Glow rgba variants — use in text-shadow / box-shadow */
+  --glow-primary-soft:     rgba(255, 45, 120, 0.2);
+  --glow-primary-medium:   rgba(255, 45, 120, 0.6);
+  --glow-primary-strong:   rgba(255, 45, 120, 0.8);
+  --glow-secondary-soft:   rgba(0, 255, 204, 0.2);
+  --glow-secondary-medium: rgba(0, 255, 204, 0.6);
+  --glow-tertiary-soft:    rgba(255, 224, 74, 0.2);
+  --glow-tertiary-medium:  rgba(255, 224, 74, 0.6);
+  --glow-destructive:      rgba(239, 68, 68, 0.6);
+}

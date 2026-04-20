@@ -1,0 +1,14 @@
+/* ============================================================
+   Neon Tokyo — Radius + shape tokens
+   ------------------------------------------------------------
+   Aligned with shadcn defaults so primitives pick them up.
+   ============================================================ */
+
+:root {
+  --radius-xs:   0.125rem;  /*  2px */
+  --radius-sm:   0.25rem;   /*  4px */
+  --radius-md:   0.5rem;    /*  8px — default for buttons, inputs */
+  --radius-lg:   0.75rem;   /* 12px — dialogs, large cards */
+  --radius-xl:   1rem;      /* 16px */
+  --radius-full: 9999px;    /* pills, dots */
+}

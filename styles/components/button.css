@@ -1,0 +1,68 @@
+/* ============================================================
+   Neon Tokyo — Button preset
+   ------------------------------------------------------------
+   Optional component-level class. Shadcn primitives already
+   read the tokens; this file is for projects NOT using shadcn.
+   Use via:  <button class="ntk-btn ntk-btn-primary">…</button>
+   ============================================================ */
+
+@layer components {
+  .ntk-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.375rem;
+    height: 2rem;
+    padding-inline: 0.75rem;
+    border-radius: var(--radius-md);
+    border: 1px solid transparent;
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: background-color .15s, color .15s, box-shadow .15s;
+    cursor: pointer;
+    outline: none;
+  }
+  .ntk-btn:focus-visible {
+    border-color: var(--ring);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--ring) 50%, transparent);
+  }
+
+  .ntk-btn-primary {
+    background: var(--primary);
+    color: #0a0a12;
+  }
+  .ntk-btn-primary:hover { filter: brightness(1.08); }
+
+  .ntk-btn-secondary {
+    background: color-mix(in srgb, var(--secondary) 15%, transparent);
+    color: var(--secondary);
+    border-color: color-mix(in srgb, var(--secondary) 25%, transparent);
+  }
+  .ntk-btn-secondary:hover {
+    background: color-mix(in srgb, var(--secondary) 25%, transparent);
+  }
+
+  .ntk-btn-outline {
+    background: transparent;
+    color: var(--foreground);
+    border-color: var(--border);
+  }
+  .ntk-btn-outline:hover { background: var(--muted); }
+
+  .ntk-btn-ghost {
+    background: transparent;
+    color: var(--muted-foreground);
+    border-color: transparent;
+  }
+  .ntk-btn-ghost:hover { background: var(--muted); color: var(--foreground); }
+
+  .ntk-btn-destructive {
+    background: color-mix(in srgb, var(--destructive) 12%, transparent);
+    color: var(--destructive);
+    border-color: color-mix(in srgb, var(--destructive) 25%, transparent);
+  }
+  .ntk-btn-destructive:hover {
+    background: color-mix(in srgb, var(--destructive) 22%, transparent);
+  }
+}

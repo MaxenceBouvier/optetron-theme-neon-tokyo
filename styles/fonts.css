@@ -1,0 +1,8 @@
+/* ============================================================
+   Neon Tokyo — Fonts
+   ------------------------------------------------------------
+   Loads Sora (headline), Inter (body), Space Grotesk (labels).
+   Using Google Fonts. Swap this file if self-hosting.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap');

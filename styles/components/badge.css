@@ -1,0 +1,69 @@
+/* ============================================================
+   Neon Tokyo — Badge / pill preset
+   ------------------------------------------------------------
+   Small status pills with uppercase tracked labels.
+   Usage:
+     <span class="ntk-badge ntk-badge-success">
+       <i class="ntk-dot"></i> Online
+     </span>
+   ============================================================ */
+
+@layer components {
+  .ntk-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+    border: 1px solid transparent;
+    font-family: var(--font-label);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .ntk-badge-primary {
+    background: color-mix(in srgb, var(--primary) 10%, transparent);
+    color: var(--primary);
+    border-color: color-mix(in srgb, var(--primary) 20%, transparent);
+  }
+  .ntk-badge-success {
+    background: color-mix(in srgb, var(--success) 10%, transparent);
+    color: var(--success);
+    border-color: color-mix(in srgb, var(--success) 20%, transparent);
+  }
+  .ntk-badge-warning {
+    background: color-mix(in srgb, var(--warning) 10%, transparent);
+    color: var(--warning);
+    border-color: color-mix(in srgb, var(--warning) 25%, transparent);
+  }
+  .ntk-badge-destructive {
+    background: color-mix(in srgb, var(--destructive) 10%, transparent);
+    color: var(--destructive);
+    border-color: color-mix(in srgb, var(--destructive) 30%, transparent);
+  }
+  .ntk-badge-muted {
+    background: var(--surface-container);
+    color: var(--muted-foreground);
+    border-color: var(--outline-variant);
+  }
+
+  /* Status dot — pair with badges or use standalone */
+  .ntk-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 9999px;
+    background: currentColor;
+    box-shadow: 0 0 6px currentColor;
+  }
+  .ntk-dot-pulse { animation: ntk-pulse 1.6s ease-in-out infinite; }
+
+  @keyframes ntk-pulse {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0.4; }
+  }
+}

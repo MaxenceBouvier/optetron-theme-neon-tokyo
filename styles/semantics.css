@@ -1,0 +1,44 @@
+/* ============================================================
+   Neon Tokyo — Semantic aliases
+   ------------------------------------------------------------
+   Role-based tokens that shadcn/ui primitives expect. These
+   map the raw palette (colors.css) to meaning: foreground,
+   border, ring, destructive, etc.
+
+   If you swap the palette later, leave these aliases alone —
+   they'll just point at the new values.
+   ============================================================ */
+
+@theme {
+  --color-foreground:         #e2e8f0;   /* slate-200 — body text     */
+  --color-muted:              #1e1e30;   /* = surface-container-high  */
+  --color-muted-foreground:   #94a3b8;   /* slate-400                 */
+
+  --color-destructive:        #ef4444;   /* errors, crashed           */
+  --color-success:            #00ffcc;   /* = secondary               */
+  --color-warning:            #ffe04a;   /* = tertiary                */
+
+  --color-border:             #302840;   /* = outline-variant         */
+  --color-input:              #141422;   /* = surface-container       */
+  --color-ring:               #ff2d78;   /* = primary                 */
+
+  --color-popover:            #1e1e30;   /* dropdown / tooltip / menu */
+  --color-popover-foreground: #e2e8f0;
+}
+
+:root {
+  --foreground:         #e2e8f0;
+  --muted:              #1e1e30;
+  --muted-foreground:   #94a3b8;
+
+  --destructive:        #ef4444;
+  --success:            #00ffcc;
+  --warning:            #ffe04a;
+
+  --border:             #302840;
+  --input:              #141422;
+  --ring:               #ff2d78;
+
+  --popover:            #1e1e30;
+  --popover-foreground: #e2e8f0;
+}

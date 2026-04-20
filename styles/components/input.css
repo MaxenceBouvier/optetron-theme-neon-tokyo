@@ -1,0 +1,35 @@
+/* ============================================================
+   Neon Tokyo — Input preset
+   ============================================================ */
+
+@layer components {
+  .ntk-input {
+    width: 100%;
+    height: 2rem;
+    padding: 0.25rem 0.625rem;
+    background: transparent;
+    color: var(--foreground);
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    border: 1px solid var(--input);
+    border-radius: var(--radius-md);
+    outline: none;
+    transition: border-color .15s, box-shadow .15s;
+  }
+  .ntk-input::placeholder { color: var(--muted-foreground); }
+  .ntk-input:focus-visible {
+    border-color: var(--ring);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--ring) 50%, transparent);
+  }
+
+  .ntk-label {
+    display: block;
+    font-family: var(--font-label);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted-foreground);
+    margin-bottom: 0.5rem;
+  }
+}

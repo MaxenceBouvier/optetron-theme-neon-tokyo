@@ -1,0 +1,55 @@
+/* ============================================================
+   Neon Tokyo — Glow utilities
+   ------------------------------------------------------------
+   Neon lighting is the aesthetic's signature. Use sparingly.
+   Rule of thumb: glow on text OR border, never both on the
+   same element.
+   ============================================================ */
+
+@layer utilities {
+  /* NOTE: This file is consumed two ways:
+     1) Via Tailwind v4 — the @layer wrapper above routes rules into
+        Tailwind's utilities cascade layer.
+     2) Via plain-CSS <link> tag — browsers treat @layer natively,
+        which DEMOTES these rules below any unlayered rule on the
+        page. If you're using this file without Tailwind and need
+        higher specificity, remove the @layer wrapper or ensure
+        your page-level styles are also layered. */
+  /* ---- Text glows ------------------------------------------------ */
+  .glow-text-primary   { text-shadow: 0 0 8px rgba(255, 45, 120, 0.6); }
+  .glow-text-secondary { text-shadow: 0 0 8px rgba(0, 255, 204, 0.6); }
+  .glow-text-tertiary  { text-shadow: 0 0 8px rgba(255, 224, 74, 0.6); }
+
+  /* Hero-level text glow — logo, page title only */
+  .glow-text-primary-strong   { text-shadow: 0 0 8px rgba(255, 45, 120, 0.8); }
+  .glow-text-secondary-strong { text-shadow: 0 0 8px rgba(0, 255, 204, 0.8); }
+
+  /* ---- Container glows (inset + outer) --------------------------- */
+  .glow-border-primary {
+    box-shadow:
+      inset 0 0 12px rgba(255, 45, 120, 0.1),
+      0 0 8px rgba(255, 45, 120, 0.2);
+  }
+  .glow-border-secondary {
+    box-shadow:
+      inset 0 0 12px rgba(0, 255, 204, 0.1),
+      0 0 8px rgba(0, 255, 204, 0.2);
+  }
+  .glow-border-tertiary {
+    box-shadow:
+      inset 0 0 12px rgba(255, 224, 74, 0.1),
+      0 0 8px rgba(255, 224, 74, 0.2);
+  }
+
+  /* ---- Status dot halos ----------------------------------------- */
+  .glow-dot-primary     { box-shadow: 0 0 6px rgba(255, 45, 120, 0.6); }
+  .glow-dot-secondary   { box-shadow: 0 0 6px rgba(0, 255, 204, 0.6); }
+  .glow-dot-tertiary    { box-shadow: 0 0 6px rgba(255, 224, 74, 0.6); }
+  .glow-dot-destructive { box-shadow: 0 0 6px rgba(239, 68, 68, 0.6); }
+
+  /* ---- Nav-item active glow (soft outer) ------------------------ */
+  .glow-nav-active { box-shadow: 0 0 10px rgba(255, 45, 120, 0.2); }
+
+  /* ---- Sidebar right-edge inner glow ---------------------------- */
+  .edge-glow-right { box-shadow: inset -12px 0 12px rgba(255, 45, 120, 0.05); }
+}

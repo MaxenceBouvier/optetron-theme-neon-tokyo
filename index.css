@@ -1,0 +1,34 @@
+/* ============================================================
+   Neon Tokyo — Design System (barrel import)
+   ------------------------------------------------------------
+   Import this file for everything. Or cherry-pick individual
+   modules from styles/ if you only need part of the system.
+
+   Usage (Tailwind v4 project):
+       @import "tailwindcss";
+       @import "./neon-tokyo/index.css";
+
+   Usage (plain CSS project — skip the @theme blocks, keep :root):
+       <link rel="stylesheet" href="neon-tokyo/index.css">
+   ============================================================ */
+
+/* 1. Foundations ------------------------------------------------- */
+@import "./styles/fonts.css";
+@import "./styles/typography.css";
+@import "./styles/colors.css";
+@import "./styles/semantics.css";
+@import "./styles/radii.css";
+
+/* 2. Base layer -------------------------------------------------- */
+@import "./styles/base.css";
+
+/* 3. Utilities --------------------------------------------------- */
+@import "./styles/glow.css";
+@import "./styles/effects.css";
+@import "./styles/ambient.css";
+
+/* 4. Component presets (optional — skip if you're using shadcn) -- */
+@import "./styles/components/button.css";
+@import "./styles/components/badge.css";
+@import "./styles/components/card.css";
+@import "./styles/components/input.css";

@@ -1,0 +1,54 @@
+/* Neon Tokyo — Ambient background (drifting blurred color orbs) */
+
+.ntk-ambient {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: var(--background, #0a0a12);
+  --ntk-orb-opacity: 0.55;
+  --ntk-orb-blur: 120px;
+}
+.ntk-ambient[data-intensity="soft"] { --ntk-orb-opacity: 0.35; --ntk-orb-blur: 140px; }
+.ntk-ambient[data-intensity="bold"] { --ntk-orb-opacity: 0.75; --ntk-orb-blur: 100px; }
+.ntk-on-ambient { position: relative; z-index: 1; }
+
+.ntk-orb {
+  position: absolute;
+  display: block;
+  width: 520px;
+  height: 520px;
+  border-radius: 9999px;
+  filter: blur(var(--ntk-orb-blur));
+  opacity: 0;
+  will-change: transform, opacity;
+  mix-blend-mode: screen;
+  animation: ntk-orb-drift 32s ease-in-out infinite alternate,
+             ntk-orb-breathe 16s ease-in-out infinite;
+  animation-delay: var(--delay, 0s), var(--delay, 0s);
+}
+.ntk-orb-sm { width: 320px; height: 320px; filter: blur(calc(var(--ntk-orb-blur) * 0.7)); }
+.ntk-orb-lg { width: 720px; height: 720px; filter: blur(calc(var(--ntk-orb-blur) * 1.15)); }
+
+.ntk-orb-primary   { background: radial-gradient(closest-side, #ff2d78 0%, rgba(255,45,120,0) 70%); top: -10%; left: -8%;  animation-duration: 32s, 16s; }
+.ntk-orb-secondary { background: radial-gradient(closest-side, #00ffcc 0%, rgba(0,255,204,0) 70%); bottom: -18%; right: -6%; animation-duration: 38s, 18s; animation-direction: alternate-reverse; }
+.ntk-orb-tertiary  { background: radial-gradient(closest-side, #ffe04a 0%, rgba(255,224,74,0) 70%); top: 40%; left: 45%; animation-duration: 42s, 22s; }
+.ntk-orb-primary-echo { background: radial-gradient(closest-side, #ff2d78 0%, rgba(255,45,120,0) 70%); top: 55%; left: -12%; animation-duration: 46s, 20s; animation-direction: alternate-reverse; }
+
+@keyframes ntk-orb-drift {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  25%  { transform: translate3d(6vw, -4vh, 0) scale(1.08); }
+  50%  { transform: translate3d(-4vw, 6vh, 0) scale(0.95); }
+  75%  { transform: translate3d(5vw, 3vh, 0) scale(1.05); }
+  100% { transform: translate3d(-3vw, -5vh, 0) scale(1); }
+}
+@keyframes ntk-orb-breathe {
+  0%, 100% { opacity: 0; }
+  15% { opacity: calc(var(--ntk-orb-opacity) * 0.6); }
+  50% { opacity: var(--ntk-orb-opacity); }
+  85% { opacity: calc(var(--ntk-orb-opacity) * 0.4); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ntk-orb { animation: none; opacity: calc(var(--ntk-orb-opacity) * 0.7); }
+}

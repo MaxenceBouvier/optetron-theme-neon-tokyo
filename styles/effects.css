@@ -1,0 +1,30 @@
+/* ============================================================
+   Neon Tokyo — Effect utilities
+   ------------------------------------------------------------
+   Decorative overlays: CRT scanline, thin neon scrollbar.
+   ============================================================ */
+
+@layer utilities {
+  /* CRT scanline — apply to a full-bleed wrapper. */
+  .scanline {
+    background: linear-gradient(
+      to bottom,
+      transparent 50%,
+      rgba(255, 45, 120, 0.02) 50%
+    );
+    background-size: 100% 4px;
+  }
+
+  /* Thin magenta-on-hover scrollbar — apply to any overflow container. */
+  .custom-scrollbar::-webkit-scrollbar       { width: 4px; }
+  .custom-scrollbar::-webkit-scrollbar-track { background: #0a0a12; }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #302840;
+    border-radius: 10px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #ff2d78; }
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #302840 #0a0a12;
+  }
+}
