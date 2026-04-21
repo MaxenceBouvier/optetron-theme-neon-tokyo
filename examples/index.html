@@ -5,9 +5,9 @@
     <title>Neon Tokyo — standalone example</title>
     <link rel="stylesheet" href="../dist/neon-tokyo.css" />
     <style>
-      body { margin: 0; padding: 40px; min-height: 100vh; background: var(--color-background); color: var(--color-foreground); font-family: var(--font-body, sans-serif); }
+      body { margin: 0; padding: 40px; min-height: 100vh; background: var(--background); color: var(--foreground); font-family: var(--font-body, sans-serif); }
       h1 { font-family: var(--font-headline, sans-serif); margin: 0 0 8px; font-size: 28px; }
-      .label { font-family: var(--font-label, monospace); text-transform: uppercase; letter-spacing: 0.18em; font-size: 10px; color: var(--color-muted-foreground); }
+      .label { font-family: var(--font-label, monospace); text-transform: uppercase; letter-spacing: 0.18em; font-size: 10px; color: var(--muted-foreground); }
       section { margin-top: 32px; }
       .row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
       .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
@@ -17,7 +17,7 @@
     <header>
       <p class="label">@optetron / theme-neon-tokyo</p>
       <h1>Neon Tokyo — standalone smoke test</h1>
-      <p style="color: var(--color-muted-foreground); max-width: 60ch;">
+      <p style="color: var(--muted-foreground); max-width: 60ch;">
         This page imports <code>dist/neon-tokyo.css</code> directly — no build
         step, no Tailwind, no bundler. If buttons glow and colors match the
         reference, the standalone distribution works.
