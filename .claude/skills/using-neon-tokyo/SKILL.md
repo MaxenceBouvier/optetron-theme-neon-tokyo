@@ -50,6 +50,18 @@ digraph consumption {
 | 2. Unscoped dist | `<link href="dist/neon-tokyo.unscoped.min.css">` | Only `--primary`, `--foreground`, etc. **NO `--color-*` prefix** (Tailwind CLI strips it). Plus `.ntk-*` component classes. | Plain HTML, no bundler, single theme |
 | 3. Scoped dist | `<link href="dist/neon-tokyo.min.css">` + `<html data-theme="neon-tokyo">` | Same as mode 2, but every rule wrapped under `[data-theme="neon-tokyo"]`. Lets you load multiple themes side-by-side. | Multi-theme sites, theme switchers |
 
+### Font loading
+
+The theme does **not** auto-load fonts — that's the consumer's call. Three strategies (full details in the theme's README):
+
+| Strategy | When | How |
+|---|---|---|
+| Google CDN quick start | Plain HTML, quick prototypes | `@import "neon-tokyo/styles/fonts.css"` |
+| Self-hosted | Production plain HTML, privacy-sensitive | `@fontsource/sora`, `@fontsource/inter`, `@fontsource/space-grotesk` |
+| Framework-native | Next / Astro / Remix / Nuxt / SvelteKit | `next/font/google` etc. — inject `--font-sora`, `--font-inter`, `--font-space-grotesk` variables, then override `--font-headline` / `--font-body` / `--font-label` to prefer them |
+
+After loading fonts by any strategy, the theme's tokens (`--font-headline`, `--font-body`, `--font-label`) resolve correctly.
+
 ## Token-naming gotcha (read this once, save yourself 20 min)
 
 The theme's source declares each color token twice:

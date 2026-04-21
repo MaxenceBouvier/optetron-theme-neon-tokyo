@@ -1,6 +1,6 @@
 {
   "name": "@optetron/theme-neon-tokyo",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "description": "Neon Tokyo — a cyberpunk / neo-Tokyo design system. Tokens + components, Tailwind-v4-aware.",
   "keywords": ["design-system", "tailwindcss", "theme", "neon-tokyo"],

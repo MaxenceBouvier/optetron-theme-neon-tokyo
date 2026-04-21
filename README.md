@@ -20,7 +20,7 @@ neon-tokyo/
 ├── README.md              ← you are here
 ├── Design System.html     ← visual catalog — open in a browser
 └── styles/
-    ├── fonts.css          ← Google Fonts @import
+    ├── fonts.css          ← Google Fonts @import (OPT-IN, see "Fonts" below)
     ├── typography.css     ← font-family tokens
     ├── colors.css         ← brand palette + surface ladder + glow rgba
     ├── semantics.css      ← role aliases (foreground/border/ring/...)
@@ -52,10 +52,13 @@ Each file is single-purpose. Import the whole thing via `index.css`, or cherry-p
 
 Tokens become Tailwind utilities automatically: `bg-primary`, `text-secondary`, `border-outline-variant`, `font-headline`, `font-label`, etc.
 
+**Important:** the theme does NOT auto-load fonts — see the [Fonts](#fonts) section below and pick a loading strategy.
+
 ### Plain HTML / non-Tailwind project
 
 ```html
 <link rel="stylesheet" href="neon-tokyo/index.css">
+<link rel="stylesheet" href="neon-tokyo/styles/fonts.css"><!-- opt-in font loading -->
 
 <h1 style="color: var(--primary); font-family: var(--font-headline);">
   Mission Control
@@ -64,7 +67,7 @@ Tokens become Tailwind utilities automatically: `bg-primary`, `text-secondary`, 
 <button class="ntk-btn ntk-btn-primary">Launch</button>
 ```
 
-Every token is also exposed as a plain CSS variable on `:root` so it works without Tailwind. The `.ntk-*` component presets (button, badge, card, input) give you ready-made classes.
+Every token is also exposed as a plain CSS variable on `:root` so it works without Tailwind. The `.ntk-*` component presets (button, badge, card, input) give you ready-made classes. Font loading is opt-in — see the [Fonts](#fonts) section.
 
 ### Standalone build (prebuilt CSS)
 
@@ -98,6 +101,84 @@ See `examples/index.html` for a live reference.
 Drop-in theme. The semantic aliases in `styles/semantics.css` (`--color-foreground`, `--color-border`, `--color-ring`, etc.) map 1:1 to what shadcn primitives expect. Point `components.json`'s `css` field at `neon-tokyo/index.css` and `npx shadcn@latest add <primitive>` just works.
 
 If you're using shadcn, you can skip the `styles/components/*` imports — shadcn primitives already consume the tokens.
+
+---
+
+## Fonts
+
+The theme's typography tokens reference three font families by name:
+
+- `--font-headline` → **Sora**
+- `--font-body` → **Inter**
+- `--font-label` → **Space Grotesk**
+
+The theme does **not** auto-load these fonts — loading is the consumer's responsibility. Pick one of three strategies:
+
+### Strategy 1: Quick start (plain HTML, Google Fonts CDN)
+
+Import the theme's convenience file directly:
+
+```css
+@import "neon-tokyo/index.css";
+@import "neon-tokyo/styles/fonts.css"; /* <-- opt-in */
+```
+
+Loads fonts from Google CDN at runtime. Simplest, but one third-party request on every first visit and (depending on jurisdiction) GDPR considerations for EU visitors.
+
+### Strategy 2: Self-hosted via Fontsource
+
+```bash
+npm install @fontsource/sora @fontsource/inter @fontsource/space-grotesk
+```
+
+```css
+@import "@fontsource/sora/400.css";
+@import "@fontsource/sora/600.css";
+@import "@fontsource/sora/700.css";
+@import "@fontsource/sora/800.css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/space-grotesk/400.css";
+@import "@fontsource/space-grotesk/500.css";
+@import "@fontsource/space-grotesk/700.css";
+@import "neon-tokyo/index.css";
+```
+
+Fonts served from your own origin, no third-party request.
+
+### Strategy 3: Framework-native (recommended for SSR frameworks)
+
+Next.js example using `next/font/google`:
+
+```tsx
+// app/layout.tsx
+import { Sora, Inter, Space_Grotesk } from 'next/font/google';
+
+const sora = Sora({ subsets: ['latin'], variable: '--font-sora', weight: ['400','600','700','800'] });
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter', weight: ['400','500','600'] });
+const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-space-grotesk', weight: ['400','500','700'] });
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html className={`${sora.variable} ${inter.variable} ${spaceGrotesk.variable}`}>
+      <body>{children}</body>
+    </html>
+  );
+}
+```
+
+Then in your CSS entry, after `@import "neon-tokyo/index.css"`, override the font tokens to prefer the Next-injected variables:
+
+```css
+:root {
+  --font-headline: var(--font-sora), "Sora", ui-sans-serif, system-ui, sans-serif;
+  --font-body:     var(--font-inter), "Inter", system-ui, sans-serif;
+  --font-label:    var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;
+}
+```
+
+Astro, Remix, Nuxt, and SvelteKit have analogous built-in font APIs — adapt as needed.
 
 ---
 

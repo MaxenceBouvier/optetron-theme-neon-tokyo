@@ -13,7 +13,13 @@
    ============================================================ */
 
 /* 1. Foundations ------------------------------------------------- */
-@import "./styles/fonts.css";
+/* Font loading is the consumer's responsibility — see README "Fonts"
+   section for three recommended strategies. The theme's typography
+   tokens reference font families by name (Sora / Inter / Space Grotesk);
+   consumers must load those families via any of:
+     - @import "neon-tokyo/styles/fonts.css" (quick start, Google CDN)
+     - @fontsource/* packages (self-hosted)
+     - framework-native (next/font, Astro's font API, etc.) */
 @import "./styles/typography.css";
 @import "./styles/colors.css";
 @import "./styles/semantics.css";
