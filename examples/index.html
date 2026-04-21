@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en" data-theme="neon-tokyo">
+  <head>
+    <meta charset="utf-8" />
+    <title>Neon Tokyo — standalone example</title>
+    <link rel="stylesheet" href="../dist/neon-tokyo.css" />
+    <style>
+      body { margin: 0; padding: 40px; min-height: 100vh; background: var(--color-background); color: var(--color-foreground); font-family: var(--font-body, sans-serif); }
+      h1 { font-family: var(--font-headline, sans-serif); margin: 0 0 8px; font-size: 28px; }
+      .label { font-family: var(--font-label, monospace); text-transform: uppercase; letter-spacing: 0.18em; font-size: 10px; color: var(--color-muted-foreground); }
+      section { margin-top: 32px; }
+      .row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+      .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <p class="label">@optetron / theme-neon-tokyo</p>
+      <h1>Neon Tokyo — standalone smoke test</h1>
+      <p style="color: var(--color-muted-foreground); max-width: 60ch;">
+        This page imports <code>dist/neon-tokyo.css</code> directly — no build
+        step, no Tailwind, no bundler. If buttons glow and colors match the
+        reference, the standalone distribution works.
+      </p>
+    </header>
+
+    <section>
+      <p class="label">Buttons</p>
+      <div class="row">
+        <button class="ntk-btn ntk-btn-primary">Primary</button>
+        <button class="ntk-btn ntk-btn-secondary">Secondary</button>
+        <button class="ntk-btn ntk-btn-outline">Outline</button>
+        <button class="ntk-btn ntk-btn-ghost">Ghost</button>
+      </div>
+    </section>
+
+    <section>
+      <p class="label">Badges</p>
+      <div class="row">
+        <span class="ntk-badge ntk-badge-primary"><i class="ntk-dot"></i> Live</span>
+        <span class="ntk-badge ntk-badge-warning"><i class="ntk-dot"></i> Waiting</span>
+        <span class="ntk-badge ntk-badge-destructive"><i class="ntk-dot"></i> Crashed</span>
+      </div>
+    </section>
+
+    <section>
+      <p class="label">Cards</p>
+      <div class="grid">
+        <div class="ntk-card"><h3>Surface</h3><p>Default card on <code>--color-surface</code>.</p></div>
+        <div class="ntk-card ntk-card-raised"><h3>Raised</h3><p>Elevated to <code>--color-surface-container-high</code>.</p></div>
+        <div class="ntk-card ntk-card-active"><h3>Active</h3><p>Selected state with accent border.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <p class="label">Inputs</p>
+      <div class="row">
+        <label class="ntk-label">Search
+          <input class="ntk-input" placeholder="type here…" />
+        </label>
+      </div>
+    </section>
+  </body>
+</html>

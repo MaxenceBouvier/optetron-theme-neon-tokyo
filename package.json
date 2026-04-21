@@ -1,0 +1,28 @@
+{
+  "name": "@optetron/theme-neon-tokyo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Neon Tokyo — a cyberpunk / neo-Tokyo design system. Tokens + components, Tailwind-v4-aware.",
+  "keywords": ["design-system", "tailwindcss", "theme", "neon-tokyo"],
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/MaxenceBouvier/optetron-theme-neon-tokyo.git"
+  },
+  "type": "module",
+  "exports": {
+    ".": "./index.css",
+    "./dist/*": "./dist/*",
+    "./styles/*": "./styles/*"
+  },
+  "files": ["index.css", "styles", "dist", "README.md"],
+  "scripts": {
+    "build": "node scripts/build.mjs"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.14",
+    "lightningcss": "^1.28.2",
+    "postcss": "^8.5.0",
+    "postcss-prefix-selector": "^2.1.1"
+  }
+}

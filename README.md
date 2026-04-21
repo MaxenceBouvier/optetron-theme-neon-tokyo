@@ -66,6 +66,29 @@ Tokens become Tailwind utilities automatically: `bg-primary`, `text-secondary`, 
 
 Every token is also exposed as a plain CSS variable on `:root` so it works without Tailwind. The `.ntk-*` component presets (button, badge, card, input) give you ready-made classes.
 
+### Standalone build (prebuilt CSS)
+
+If you can't `@import` CSS files (static site, CMS, email preview, Figma plugin…), build once and drop the artifact in:
+
+    npm install
+    npm run build
+    # → dist/neon-tokyo.css                (scoped, readable)
+    # → dist/neon-tokyo.min.css             (scoped, minified)
+    # → dist/neon-tokyo.unscoped.css        (tokens on :root)
+    # → dist/neon-tokyo.unscoped.min.css    (:root, minified)
+
+**Single-theme site:**
+
+    <link rel="stylesheet" href="dist/neon-tokyo.unscoped.min.css">
+
+**Multi-theme site (switch via `data-theme` on `<html>`):**
+
+    <link rel="stylesheet" href="dist/neon-tokyo.min.css">
+    <link rel="stylesheet" href="../theme-bone-rust/dist/bone-rust.min.css">
+    <html data-theme="neon-tokyo"> ... </html>
+
+See `examples/index.html` for a live reference.
+
 ### shadcn/ui
 
 Drop-in theme. The semantic aliases in `styles/semantics.css` (`--color-foreground`, `--color-border`, `--color-ring`, etc.) map 1:1 to what shadcn primitives expect. Point `components.json`'s `css` field at `neon-tokyo/index.css` and `npx shadcn@latest add <primitive>` just works.
