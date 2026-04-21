@@ -83,9 +83,13 @@ If you can't `@import` CSS files (static site, CMS, email preview, Figma pluginâ
 
 **Multi-theme site (switch via `data-theme` on `<html>`):**
 
-    <link rel="stylesheet" href="dist/neon-tokyo.min.css">
-    <link rel="stylesheet" href="../theme-bone-rust/dist/bone-rust.min.css">
+    <link rel="stylesheet" href="path/to/neon-tokyo.min.css">
+    <link rel="stylesheet" href="path/to/<other-theme>.min.css">
     <html data-theme="neon-tokyo"> ... </html>
+
+Drop each theme's scoped `dist/<name>.min.css` into your asset pipeline (any
+sibling layout works â€” each file is self-contained). Flip `data-theme` on
+`<html>` to swap palettes at runtime.
 
 See `examples/index.html` for a live reference.
 
