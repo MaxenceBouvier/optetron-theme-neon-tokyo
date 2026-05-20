@@ -14,6 +14,11 @@
   --color-secondary: #00ffcc;  /* cyan — online, success, positive     */
   --color-tertiary:  #ffe04a;  /* acid yellow — warning, waiting       */
 
+  /* Extended palette — diagram / role accents (data flow, ops) ---- */
+  --color-accent-green:  #64ffb4;  /* mint — data nodes                */
+  --color-accent-violet: #b066ff;  /* violet — reserved                */
+  --color-accent-orange: #ff8800;  /* saffron — operation / tool nodes */
+
   /* Surface ladder (dark → less dark) ----------------------------- */
   --color-background:             #0a0a12;  /* page base              */
   --color-surface:                #0f0f1a;  /* card / panel           */
@@ -27,6 +32,11 @@
   --primary:   #ff2d78;
   --secondary: #00ffcc;
   --tertiary:  #ffe04a;
+
+  /* Extended palette — diagram / role accents */
+  --accent-green:  #64ffb4;
+  --accent-violet: #b066ff;
+  --accent-orange: #ff8800;
 
   /* Surfaces */
   --background:             #0a0a12;
