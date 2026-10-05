@@ -2,6 +2,10 @@
 
 All notable changes to the Neon Tokyo theme.
 
+## Unreleased
+
+- Licensed under MIT (`LICENSE`); `package.json` `license` changed from `UNLICENSED` to `MIT`.
+
 ## 0.2.0 — 2026-04-21
 
 ### BREAKING

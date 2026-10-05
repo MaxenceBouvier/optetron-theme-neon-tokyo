@@ -332,3 +332,9 @@ Adding a token? Put it in the right module:
 | New `.ntk-*` component class | new file in `styles/components/` + import in `index.css` |
 
 Keep component-level CSS out of the token files, and keep tokens out of the base layer. The separation is what keeps the system portable.
+
+---
+
+## License
+
+MIT — see [LICENSE](LICENSE). The fonts (Sora, Inter, Space Grotesk) are not part of this package: `styles/fonts.css` loads them from Google Fonts, under the SIL Open Font License.
